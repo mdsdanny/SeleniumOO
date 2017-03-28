@@ -40,9 +40,13 @@ The SOOFactory.initializeFW() takes three paramenters:
 2.  **browserTypeKey** - *browserTypeKey* - Is the key of the properties file were you specified the browser type. In this case. browserType=firefox or browserType=chrome or browserType=ie
 3.  **driverKey** - *driverKey* - Is the key of the properties file were you specified the path of the driver to use. In this case. driverLocation = /home/daniela/Desktop/geckodriver
 
-You must implement the call to **SOOFactory.initializeFW()** at the start of your suite. This way I just mentioned, is my suggestion. You can call this method with no params, so no property file will we set and firefox as default browser.
+You must implement the call to **SOOFactory.initializeFW()** at the start of your suite. This way I just mentioned, is my suggestion. You can call this method with no params(if you dont want to used a properties file), so no property file will we set and firefox as default browser.
 
-
+You can also pass the values directly with no properties file:
+**SOOFactory.initializeFW(String browser, String driverPath, String gridHubAddress)**
+```java
+SOOFactory.initializeFW("firefox","/home/daniela/Desktop/geckodriver", null)
+```
 
 ## Creating a new page
 
