@@ -104,7 +104,8 @@ All of the UI elements and actions of our UI page should be defined in our objec
 ```java
 class GoogleTest extends SOOTest{
     GooglePage googlePage = null;
-
+    SOOConfig config = null;
+    
     public GoogleTest(){
         SOOFramework fw = SOOFrameworkHelper.getFramework();
         googlePage = new GooglePage(fw);
