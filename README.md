@@ -36,9 +36,9 @@ class SOOFrameworkHelper extends RunListener{
 }
 ```
 The SOOFactory.initializeFW() takes three paramenters:
-1.  **resourceName** - *resourceName* - That is the name of the properties file you wish to include on your tests. As example. I wrote config.properties under the test/resources folder.
-2.  **browserTypeKey** - *browserTypeKey* - Is the key of the properties file were you specified the browser type. In this case. browserType=firefox or browserType=chrome or browserType=ie
-3.  **driverKey** - *driverKey* - Is the key of the properties file were you specified the path of the driver to use. In this case. driverLocation = /home/daniela/Desktop/geckodriver
+1.  **resourceName** - That is the name of the properties file you wish to include on your tests. As example. I wrote config.properties under the test/resources folder.
+2.  **browserTypeKey** - Is the key of the properties file were you specified the browser type. In this case. browserType=firefox or browserType=chrome or browserType=ie
+3.  **driverKey** - Is the key of the properties file were you specified the path of the driver to use. In this case. driverLocation = /home/daniela/Desktop/geckodriver
 
 You must implement the call to **SOOFactory.initializeFW()** at the start of your suite. This way I just mentioned, is my suggestion. You can call this method with no params(if you dont want to used a properties file), so no property file will we set and firefox as default browser.
 
@@ -82,14 +82,14 @@ class GooglePage extends SOOPage {
 ```
 The GooglePage class is now our page object. This is the place to list all of the UI elements in the page, and their behaviour.
 
-1.  **Constructor** - *Constructor* - The constructor takes an instance of the current SeleniumOO framework object. In this example is SOOFramework instance, that belongs to SeleniumOO library.
-2.  **validateElements()** - *validateElements()* - This method is implemented in each of our pages. Is were we make sure of the existence of our elements. In this case, instance of SOOUIElement class. SOOUIElement is a child of seleniumhq WebElement object. 
-4.  **SOOFactory.createElement()** - *SOOFactory.createElement()* - The fastest way of creating SOOUIElement objects. In this example, we initialize the element with the current page, a SSOElementType the type is NAME and the value "q". It maps the HTML element: 
+1.  **Constructor** - The constructor takes an instance of the current SeleniumOO framework object. In this example is SOOFramework instance, that belongs to SeleniumOO library.
+2.  **validateElements()** - This method is implemented in each of our pages. Is were we make sure of the existence of our elements. In this case, instance of SOOUIElement class. SOOUIElement is a child of seleniumhq WebElement object. 
+4.  **SOOFactory.createElement()** - The fastest way of creating SOOUIElement objects. In this example, we initialize the element with the current page, a SSOElementType the type is NAME and the value "q". It maps the HTML element: 
 
 ```html
 <input name="q"/>
 ```
-3.  **search()** - *search()* - We want to search for a word. So we call selenium sendKeys() and sendKeys() method's to perform the search user's action.
+3.  **search()** - We want to search for a word. So we call selenium sendKeys() and sendKeys() method's to perform the search user's action.
 
 Also to keep the object oriented paradigm, I've created a getSearchField() method. 
 All of the UI elements and actions of our UI page should be defined in our object. So it will be reusable and independent of another one.
@@ -131,9 +131,9 @@ class GoogleTest extends SOOTest{
 ```
 
 
-1.  **Constructor** - *Constructor* - The constructor gets the SOOFramework object already instantiated. And creates the GooglePage to be tested. Also the config file is keeped in context(if we decide to implement a config file).
-2.  **testGoogle()** - *testGoogle()* - Here we navigate to the the page and we make sure to validate the elements on our GooglePage. Finally we perform the search action. 
-4.  **tearDown()** - *tearDown()* - This is just for closing the browser instance. Of course will depend if you want to implemented here or any other place of your suite. 
+1.  **Constructor** - The constructor gets the SOOFramework object already instantiated. And creates the GooglePage to be tested. Also the config file is keeped in context(if we decide to implement a config file).
+2.  **testGoogle()** - Here we navigate to the the page and we make sure to validate the elements on our GooglePage. Finally we perform the search action. 
+4.  **tearDown()** - This is just for closing the browser instance. Of course will depend if you want to implemented here or any other place of your suite. 
 
 ## Authors
 * **Daniela Sánchez** - *Java Developer* - (https://github.com/mdsdanny)
