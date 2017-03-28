@@ -1,4 +1,4 @@
-package com.github.mdsdanny.seleniumOO.util;
+package com.seleniumOO.util;
 
 /**
  * Created by daniela on 19/03/17.

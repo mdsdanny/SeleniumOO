@@ -1,6 +1,6 @@
-package com.github.mdsdanny.seleniumOO.ui;
+package com.seleniumOO.ui;
 
-import com.github.mdsdanny.seleniumOO.util.SSOElementType;
+import com.seleniumOO.util.SSOElementType;
 import org.openqa.selenium.*;
 
 import java.util.ArrayList;

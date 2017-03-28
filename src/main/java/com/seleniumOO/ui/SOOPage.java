@@ -1,10 +1,10 @@
-package com.github.mdsdanny.seleniumOO.ui;
+package com.seleniumOO.ui;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import com.github.mdsdanny.seleniumOO.SOOFramework;
-import com.github.mdsdanny.seleniumOO.util.SOOException;
+import com.seleniumOO.SOOFramework;
+import com.seleniumOO.util.SOOException;
 
 import java.util.ArrayList;
 import java.util.List;

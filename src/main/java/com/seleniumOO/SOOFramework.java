@@ -1,7 +1,7 @@
-package com.github.mdsdanny.seleniumOO;
+package com.seleniumOO;
 
-import com.github.mdsdanny.seleniumOO.util.SOOConfig;
-import com.github.mdsdanny.seleniumOO.util.SOOException;
+import com.seleniumOO.util.SOOConfig;
+import com.seleniumOO.util.SOOException;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -26,17 +26,19 @@ public class SOOFramework{
 
     static final Logger logger = Logger.getLogger(SOOFramework.class);
 
-    public SOOFramework(String browser, String driverPath) throws SOOException {
+    public SOOFramework(String browser, String driverPath, String gridHubAddress) throws SOOException {
         try {
-            init(browser, driverPath, false, null);
+            init(browser, driverPath, gridHubAddress);
         }catch (Throwable e){
             throw new SOOException(e);
         }
     }
 
-    public SOOFramework(String resourceName, String browserTypeKey, String driverKey) throws SOOException {
+    public SOOFramework(String resourceName, String browserTypeKey, String driverKey, String gridHubAddresskey) throws SOOException {
         browserTypeKey = browserTypeKey != null ? browserTypeKey : "browserType";
         driverKey = driverKey != null ? driverKey : "driverLocation";
+        gridHubAddresskey = gridHubAddresskey != null ? gridHubAddresskey : "gridHubAddress";
+
         try {
            if(resourceName == null) {
                 if(getConfig().getProperty(driverKey) != null){
@@ -49,14 +51,19 @@ public class SOOFramework{
             }
             config = new SOOConfig(resourceName);
 
-            init(config.getProperty(browserTypeKey), getConfig().getProperty(driverKey), new Boolean(getConfig().getProperty("gridExecution")), config.getProperty("gridHubAddress"));
+            init(config.getProperty(browserTypeKey), getConfig().getProperty(driverKey), config.getProperty(gridHubAddresskey));
 
         }catch (Throwable e){
             throw new SOOException(e);
         }
    }
 
-    void init(String browser, String driverPath, Boolean gridExecution, String gridHubAddress) throws Exception {
+    void init(String browser, String driverPath, String gridHubAddress) throws Exception {
+        if(browser == null){
+            throw new Exception("No browser type defined. Examples: 'firefox', 'chrome' or 'ie'");
+        }
+        browser = browser.toLowerCase();
+        Boolean gridExecution = gridHubAddress != null ? true : false;
         switch (browser) {
             case "firefox":
                 if (gridExecution) {
@@ -74,6 +81,9 @@ public class SOOFramework{
                     DesiredCapabilities capability = DesiredCapabilities.internetExplorer();
                     webDriver = new RemoteWebDriver(new URL(gridHubAddress), capability);
                 } else {
+                    if(driverPath != null){
+                        System.setProperty("webdriver.ie.driver", driverPath);
+                    }
                     webDriver = new InternetExplorerDriver();
                 }
                 break;
@@ -84,18 +94,15 @@ public class SOOFramework{
                 } else {
                     if(driverPath != null){
                         System.setProperty("webdriver.chrome.driver", driverPath);
-                    }else{
-                        logger.info("no toma el driver");
                     }
-
                     webDriver = new ChromeDriver();
                 }
                 break;
             default:
                 if(driverPath != null){
-                    System.setProperty("webdriver.chrome.driver", driverPath);
+                    System.setProperty("webdriver.gecko.driver", driverPath);
                 }
-                webDriver = new ChromeDriver();
+                webDriver = new FirefoxDriver();
         }
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         webDriver.manage().window().maximize();

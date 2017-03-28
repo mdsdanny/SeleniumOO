@@ -1,4 +1,4 @@
-package com.github.mdsdanny.seleniumOO.util;
+package com.seleniumOO.util;
 
 /**
  * This is the plugin object exception.

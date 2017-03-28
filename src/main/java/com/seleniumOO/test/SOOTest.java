@@ -1,4 +1,4 @@
-package com.github.mdsdanny.seleniumOO.test;
+package com.seleniumOO.test;
 
 import junit.framework.TestCase;
 /**
