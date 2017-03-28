@@ -136,7 +136,7 @@ class GoogleTest extends SOOTest{
 4.  **tearDown()** - This is just for closing the browser instance. Of course will depend if you want to implemented here or any other place of your suite. 
 
 ## Authors
-* **Daniela Sánchez** - *Java Developer* - (https://github.com/mdsdanny)
+* **Daniela Sánchez** - *Java Developer* - https://github.com/mdsdanny - 
 See also the list of [contributors](https://github.com/mdsdanny/seleniumOO/graphs/contributors) who participated in this project.
 
 Looking forward any feedback on this project. Thanks for reading !
