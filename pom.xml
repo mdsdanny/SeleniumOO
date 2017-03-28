@@ -10,6 +10,7 @@
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Java Plugin that extends selenium core into a OO design project.</description>
+    <url>https//github.com/mdsdanny/SeleniumOO</url>
 
     <developers>
         <developer>
@@ -18,6 +19,23 @@
             <organization>MDS</organization>
         </developer>
     </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/mdsdanny/SeleniumOO.git</connection>
+        <developerConnection>scm:git:ssh://github.com:mdsdanny/SeleniumOO.git</developerConnection>
+        <url>http://github.com/mdsdanny/SeleniumOO/tree/master</url>
+    </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <java.version>1.8</java.version>
