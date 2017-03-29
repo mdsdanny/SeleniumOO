@@ -48,6 +48,12 @@ public class SOOUIElement implements WebElement{
             case TYPE :
                 webElement = webDriver.findElement(By.cssSelector("[type='"+value+"']"));
                 break;
+            case XPATH :
+                webElement = webDriver.findElement(By.xpath(value));
+                break;
+            case LINKTEXT :
+                webElement = webDriver.findElement(By.linkText(value));
+                break;
             default:
 
         }

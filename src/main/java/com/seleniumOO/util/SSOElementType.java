@@ -9,7 +9,9 @@ public enum SSOElementType {
     CLASS("class"),
     NAME("name"),
     LABEL("label"),
-    TYPE("type");
+    TYPE("type"),
+    XPATH("xpath"),
+    LINKTEXT("linkText");
 
     String value;
 
