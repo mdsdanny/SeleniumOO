@@ -71,7 +71,7 @@ public class SOOFramework{
                     webDriver = new RemoteWebDriver(new URL(gridHubAddress), capability);
                 } else {
                     if(driverPath != null){
-                        System.setProperty("webdriver.gecko.driver", getConfig().getProperty(driverPath));
+                        System.setProperty("webdriver.gecko.driver", driverPath);
                     }
                     webDriver = new FirefoxDriver();
                 }
