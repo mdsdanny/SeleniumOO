@@ -12,7 +12,9 @@ import java.util.Set;
 
 /**
  * This class represents a HTML page.
- * Classes that extends this one, like your own page, could have specific functionality for the HTML elements on it. Element instances of SOOUIElement class.
+ * Classes that extends this one, like your own page, could have specific functionality for the HTML elements on it.
+ * Element's instances of SOOUIElement class.
+ * Manages a WebDriver instance.
  *
  * Created by Daniela Sánchez on 10/02/2017
  */
@@ -39,6 +41,13 @@ public abstract class SOOPage implements WebDriver{
         return this.webDriver.getTitle();
     }
 
+    /**
+     * You can search the page for your SOOUIElement's by a standard search with
+     * org.openqa.selenium.By definition.
+     *
+     * @param byOO org.openqa.selenium.By definition.
+     * @return a List<SOOUIElement>
+     */
     public List<SOOUIElement> findElementsSOO(By byOO) {
         List<SOOUIElement> sooElements = new ArrayList<SOOUIElement>();
         List<WebElement> elements = findElements(byOO);

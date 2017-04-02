@@ -14,8 +14,9 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 /**
- * This class is the main loaded of the Selenium OO plugin.
- * Takes care of the initialization of the browser and the .properties file.
+ * This class is the main loaded of the Selenium OO library.
+ * Takes care of the initialization of the browser and a possible .properties file.
+ * Manages a WebDriver instance and a SOOConfig instance.
  *
  * Created by Daniela Sánchez on 10/02/2017
  */
@@ -26,6 +27,13 @@ public class SOOFramework{
 
     static final Logger logger = Logger.getLogger(SOOFramework.class);
 
+    /**
+     * Constructor for an initialization with no property file.
+     * @param browser you specified the browser type. Are 'firefox' or 'chrome' or 'ie'
+     * @param driverPath you specified the path of the driver to use. For example '/home/daniela/Desktop/geckodriver'
+     * @param gridHubAddress you specified the grid hub address. You can set null if you don't have one.
+     * @throws SOOException
+     */
     public SOOFramework(String browser, String driverPath, String gridHubAddress) throws SOOException {
         try {
             init(browser, driverPath, gridHubAddress);
@@ -34,6 +42,14 @@ public class SOOFramework{
         }
     }
 
+    /**
+     * Constructor for an initialization with a property file.
+     * @param resourceName the name of the properties file you wish to include on your tests. As example, config.properties under the test/resources folder.
+     * @param browserTypeKey Is the key of the properties file were you specified the browser type. Are browserType=firefox or browserType=chrome or browserType=ie
+     * @param driverKey Is the key of the properties file were you specified the path of the driver to use. For example driverLocation = /home/daniela/Desktop/geckodriver
+     * @param gridHubAddresskey Is the key of the properties file were you specified the grid hub address. You can set null if you don't have one.
+     * @throws SOOException
+     */
     public SOOFramework(String resourceName, String browserTypeKey, String driverKey, String gridHubAddresskey) throws SOOException {
         browserTypeKey = browserTypeKey != null ? browserTypeKey : "browserType";
         driverKey = driverKey != null ? driverKey : "driverLocation";

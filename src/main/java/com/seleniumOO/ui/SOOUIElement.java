@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * This class represents a UI element of the BROWSER page. A HTML element.
- * Classes that extends this one, like SOOButton could have specific functionality for the HTML Button element.
+ * Manages a WebDriver instance and a WebElement instance.
  *
  * Created by Daniela Sánchez on 09/02/2017
  */
@@ -17,18 +17,15 @@ public class SOOUIElement implements WebElement{
     private WebDriver webDriver;
     WebElement webElement;
 
-    String id;
-    String name;
-    String label;
-    String clazz;
-
     public SOOUIElement(WebElement we) {
         this.webElement = we;
     }
 
     /**
      * A new object of SOOUIElement class. That represents a HTML element.
-     * @param page the SOOPage of the element belong to.
+     * @param page the SOOPage of the element that belongs to.
+     * @param elementType SSOElementType property type. Like 'name', 'id', 'class'...
+     * @param value the property value. Like 'oneId' or 'oneClass'.
      */
     public SOOUIElement(SOOPage page, SSOElementType elementType, String value){
         this.webDriver = page.getWebDriver();
@@ -114,6 +111,13 @@ public class SOOUIElement implements WebElement{
         return new SOOUIElement(webElement.findElement(by));
     }
 
+    /**
+     * You can search this element for others SOOUIElement's inside of this one. By a standard search with
+     * org.openqa.selenium.By definition.
+     *
+     * @param byOO org.openqa.selenium.By definition.
+     * @return a List<SOOUIElement>
+     */
     public List<SOOUIElement> findElementsSOO(By byOO) {
         List<SOOUIElement> sooElements = new ArrayList<SOOUIElement>();
         List<WebElement> elements = findElements(byOO);

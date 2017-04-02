@@ -1,6 +1,7 @@
 package com.seleniumOO.util;
 
 /**
+ * Enum used for specified an attribute of a SOOUIElement(browser element) object.
  * Created by daniela on 19/03/17.
  */
 public enum SSOElementType {

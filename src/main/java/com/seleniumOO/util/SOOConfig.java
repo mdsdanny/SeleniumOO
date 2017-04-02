@@ -8,7 +8,8 @@ import java.util.Properties;
 
 /**
  * This SOOConfig class represents a .properties file with some configuration for each project.
- * You should extend this class for your own .properties configuration file.
+ * You could extend this class for your own .properties configuration file behavior.
+ * Manages a Properties instance.
  *
  * Created by Daniela Sánchez on 10/02/2017
  */
@@ -37,8 +38,14 @@ public class SOOConfig {
             throw ex;
         }
     }
-    
-    //@ Getters & Setters
+
+    /**
+     * Gets a value of a given property key of the .properties file.
+     *
+     * @param property a key in the .properties file. For example 'appUrl'.
+     * @return the value of the given key.
+     *
+     */
     public String getProperty(String property) {
         return this.config.getProperty(property);
     }

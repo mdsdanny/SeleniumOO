@@ -1,7 +1,8 @@
 package com.seleniumOO.util;
 
 /**
- * This is the plugin object exception.
+ * This is the SOO library exception object.
+ * All exceptions that happens on the library, will thrown a SOOException object.
  *
  * Created by daniela on 14/02/17.
  */
