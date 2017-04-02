@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * This SOOConfig class represents a .properties file with some configuration for each project.
+ * This SOOConfig class represents a .properties file with some configuration of your project.
  * You could extend this class for your own .properties configuration file behavior.
  * Manages a Properties instance.
  *

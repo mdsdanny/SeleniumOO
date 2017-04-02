@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class represents a UI element of the BROWSER page. A HTML element.
+ * This class represents an UI element of the BROWSER page. A HTML element.
  * Manages a WebDriver instance and a WebElement instance.
  *
  * Created by Daniela Sánchez on 09/02/2017
