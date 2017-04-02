@@ -149,7 +149,7 @@ class GoogleTest extends SOOTest{
 
 ## SOO Classes
 
-![Screenshot](soo.png)
+             ![Screenshot](soo.png)
 
 
 ## Detail Information
