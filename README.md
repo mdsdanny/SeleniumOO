@@ -2,8 +2,8 @@
 Java library that extends Selenium core into a OO design project. This is done by not calling the driver directly each time you want to access an HTML element, but instead, creating an element that represents the HTML element of a specific page. This library also wants to encourage to use the page object concept. All into OO design patterns. Patterns used: Adapter, Factory, etc.
 
 ## Requirements
-### Java SDK >= 1.8
-### selenium-java >= 3.3.1
+Java SDK >= 1.8
+selenium-java >= 3.3.1
 
 ## Import SeleniumOO
 
@@ -150,28 +150,28 @@ class GoogleTest extends SOOTest{
 ## Detail Information
 
 ### com.seleniumOO.SOOFramework
-#### This class is the main loaded of the Selenium OO library. Takes care of the initialization of the browser and a possible .properties file. Manages a WebDriver instance and a SOOConfig instance.
+This class is the main loaded of the Selenium OO library. Takes care of the initialization of the browser and a possible .properties file. Manages a WebDriver instance and a SOOConfig instance.
 
 ### com.seleniumOO.ui.SOOPage
-#### This class represents a HTML page. Classes that extends this one, like your own page, could have specific functionality for the HTML elements on it. Element's instances of SOOUIElement class. Manages a WebDriver instance.
+This class represents a HTML page. Classes that extends this one, like your own page, could have specific functionality for the HTML elements on it. Element's instances of SOOUIElement class. Manages a WebDriver instance.
 
 ### com.seleniumOO.ui.SOOUIElement
-#### This class represents an UI element of the BROWSER page. A HTML element. Manages a WebDriver instance and a WebElement instance.
+This class represents an UI element of the BROWSER page. A HTML element. Manages a WebDriver instance and a WebElement instance.
 
 ### com.seleniumOO.util.SOOFactory
-#### SOOFactory allows to, easily initialize the SOO library and also create SOOUIElement's.
+SOOFactory allows to, easily initialize the SOO library and also create SOOUIElement's.
 
 ### com.seleniumOO.util.SSOElementType
-#### Enum used for specified an attribute of a SOOUIElement(browser element) object.
+Enum used for specified an attribute of a SOOUIElement(browser element) object.
 
 ### com.seleniumOO.util.SOOException
-#### This is the SOO library exception object. All exceptions that happens on the library, will thrown a SOOException object.
+This is the SOO library exception object. All exceptions that happens on the library, will thrown a SOOException object.
 
 ### com.seleniumOO.util.SOOConfig
-#### This SOOConfig class represents a .properties file with some configuration of your project. You could extend this class for your own .properties configuration file behavior. Manages a Properties instance.
+This SOOConfig class represents a .properties file with some configuration of your project. You could extend this class for your own .properties configuration file behavior. Manages a Properties instance.
 
 ### com.seleniumOO.test.SOOTest
-#### This is the main test class of this Selenium OO library. Extends from junit.framework.TestCase class. Classes that extends this one, should navigate to the initial url of your choice by calling yourPage.navigate().to("url"). yourPage variable must be a child class of SOOPage Class. Classes that extends this one, should implement the tearDown() Core Selenium method to close the BROWSER. To close the BROWSER just call the close() Core Selenium method.
+This is the main test class of this Selenium OO library. Extends from junit.framework.TestCase class. Classes that extends this one, should navigate to the initial url of your choice by calling yourPage.navigate().to("url"). yourPage variable must be a child class of SOOPage Class. Classes that extends this one, should implement the tearDown() Core Selenium method to close the BROWSER. To close the BROWSER just call the close() Core Selenium method.
 
 
 ## Authors
