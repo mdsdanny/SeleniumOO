@@ -108,8 +108,7 @@ All of the UI elements and actions of our UI page should be defined in our objec
 ## Finnally: The Test
 
 * **Our main test** 
-
-### The following example extends the SOOTest class of SeleniumOO library. It's a child of junit TestCase library. You can implement another testing utility. Your free to choose.
+* The following example extends the SOOTest class of SeleniumOO library. It's a child of junit TestCase library. You can implement another testing utility. Your free to choose.
 
 ```java
 class GoogleTest extends SOOTest{
